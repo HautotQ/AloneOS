@@ -14,4 +14,4 @@ jobs:
       - name: Compiler le kernel
         run: |
           mkdir -p build
-          clang -Wall -Wextra -Werror src/*.c -o build/kernel
+          clang -Wall -Wextra -Werror $(find src -name "*.c") -o build/kernel
