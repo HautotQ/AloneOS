@@ -5,6 +5,7 @@
 int main() {
     platform_init();
     ui_init();
+    ui_run();
     kernel_init();
 
     // Boucle principale simulée
