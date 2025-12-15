@@ -1,0 +1,17 @@
+name: Vérification du kernel
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Compiler le kernel
+        run: |
+          mkdir -p build
+          clang -Wall -Wextra -Werror src/*.c -o build/kernel
