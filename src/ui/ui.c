@@ -1,40 +1,23 @@
-#include <stdio.h>
-#include <string.h>
+#include "gfx.h"
 #include "ui.h"
 
-// Initialisation de l'UI
 void ui_init() {
-    printf("[UI] Interface utilisateur initialisée (console simple)\n");
+    gfx_clear(0x000000);
 }
 
-// Affichage d'une fenêtre
-void ui_draw_window(const char* title) {
-    printf("\n+----------------------------+\n");
-    printf("| %s\n", title);
-    printf("+----------------------------+\n");
+void ui_draw_window() {
+    gfx_rect(100, 80, 440, 320, 0x4444FF);
+    gfx_rect(110, 90, 420, 300, 0x000000);
 }
 
-// Affichage d'un bouton simulé
-void ui_button(const char* label) {
-    printf("[Bouton] %s\n", label);
+void ui_button(int x, int y, const char* text) {
+    gfx_rect(x, y, 200, 40, 0x8888FF);
+    gfx_text(x + 20, y + 12, text, 0xFFFFFF);
 }
 
-// Interaction simple
 void ui_run() {
-    char choix[10];
-    ui_draw_window("Menu Principal");
-    ui_button("1. Démarrer");
-    ui_button("2. Options");
-    ui_button("3. Quitter");
-
-    printf("\nVotre choix: ");
-    fgets(choix, sizeof(choix), stdin);
-
-    if (strncmp(choix, "1", 1) == 0) {
-        printf("Démarrage du programme...\n");
-    } else if (strncmp(choix, "2", 1) == 0) {
-        printf("Ouverture des options...\n");
-    } else {
-        printf("Fermeture de l'UI.\n");
-    }
+    ui_draw_window();
+    ui_button(220, 160, "Demarrer");
+    ui_button(220, 220, "Options");
+    ui_button(220, 280, "Quitter");
 }
