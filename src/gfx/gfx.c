@@ -26,3 +26,8 @@ void gfx_rect(int x, int y, int w, int h, uint32_t color) {
         }
     }
 }
+
+void gfx_text(int x, int y, const char* text, uint32_t color) {
+    // Implémentation simplifiée : pour l'instant on peut laisser vide
+    (void)x; (void)y; (void)text; (void)color;
+}
