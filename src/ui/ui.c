@@ -1,4 +1,4 @@
-#include "gfx.h"
+#include "../gfx.h"
 #include "ui.h"
 
 void ui_init() {
